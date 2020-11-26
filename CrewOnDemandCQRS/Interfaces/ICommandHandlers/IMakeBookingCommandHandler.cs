@@ -1,9 +1,10 @@
 ﻿using CrewOnDemandCQRS.ResponseModels.CommandResponseModels;
+using CrewOnDemandCQRS.RequestModels.CommandRequestModels;
 
 namespace CrewOnDemandCQRS.Interfaces.ICommandHandlers
 {
     public interface IMakeBookingCommandHandler
     {
-        MakeBookingResponseModel MakeBooking(MakeBookingResponseModel requestModel);
+        MakeBookingResponseModel MakeBooking(MakeBookingRequestModel requestModel);
     }
 }

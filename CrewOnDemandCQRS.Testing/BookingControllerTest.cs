@@ -29,10 +29,8 @@ namespace CrewOnDemandCQRS.Testing
                 ReturnsAsync(new MakeBookingResponseModel { IsSuccess = true, BookingId = Guid.NewGuid() });
             var bookingController = new BookingController(Mediator.Object);
 
-            //Action
             var result = bookingController.MakeBooking(makeBookingRequestModel);
 
-            //Assert
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -40,15 +38,13 @@ namespace CrewOnDemandCQRS.Testing
         [Fact]
         public void GetBookingById_Success_Result()
         {
-            var GetBookingByIdRequestModel = new GetBookingByIdRequestModel();
+            var getBookingByIdRequestModel = new GetBookingByIdRequestModel();
             Mediator.Setup(x => x.Send(It.IsAny<GetBookingByIdRequestModel>(), new CancellationToken())).
                 ReturnsAsync(new GetBookingByIdResponseModel());
             var bookingController = new BookingController(Mediator.Object);
 
-            //Action
-            var result = bookingController.BookingDetails(GetBookingByIdRequestModel);
+            var result = bookingController.BookingDetails(getBookingByIdRequestModel);
 
-            //Assert
             Assert.IsType<OkObjectResult>(result);
         }
     }

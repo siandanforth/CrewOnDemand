@@ -1,11 +1,10 @@
 using System.Reflection;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
 
 namespace CrewOnDemandCQRS
 {
@@ -20,14 +19,13 @@ namespace CrewOnDemandCQRS
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
-            services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
-        public void Configure(IApplicationBuilder app, IHostEnvironment env)
+        public static void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -40,6 +38,7 @@ namespace CrewOnDemandCQRS
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
         }
     }
 }

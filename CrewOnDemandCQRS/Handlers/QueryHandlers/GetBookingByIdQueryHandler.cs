@@ -8,11 +8,11 @@ namespace CrewOnDemandCQRS.Handlers.QueryHandlers
 {
     public class GetBookingByIdQueryHandler : IRequestHandler<GetBookingByIdRequestModel, GetBookingByIdResponseModel>
     {
-        public Task<GetBookingByIdResponseModel> Handle(GetBookingByIdRequestModel request, CancellationToken cancellationToken)
+        public async Task<GetBookingByIdResponseModel> Handle(GetBookingByIdRequestModel request, CancellationToken cancellationToken)
         {
             var bookingDetails = new GetBookingByIdResponseModel();
 
-            return Task.FromResult(bookingDetails);
+            return bookingDetails;
         }
     }
 }

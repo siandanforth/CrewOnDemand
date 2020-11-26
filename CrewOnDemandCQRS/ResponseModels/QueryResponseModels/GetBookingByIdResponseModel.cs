@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace CrewOnDemandCQRS.ResponseModels.QueryResponseModels
 {
     public class GetBookingByIdResponseModel
